@@ -35,6 +35,8 @@ def try_match(instruction, translate_entry):
     for i in range(len(translate_entry[TYPE_POS])):
         a_type = translate_entry[TYPE_POS][i]
         mask, shift = create_mask(a_type)
+        #if a_type == function:
+        #    print a_type
         if ((mask & instruction) >> shift) != translate_entry[VALUE_POS][i]:
             return False
     return True
@@ -79,17 +81,18 @@ def find_struct_type():
     Check : https://docs.python.org/3/library/struct.html#struct-format-strings
     """
     if bits_per_instruction == 8:
-        return 'c'
+        size_ref = 'B'
     elif bits_per_instruction == 16:
-        return 'h'
+        size_ref = 'H'
     elif bits_per_instruction == 32:
-        return 'i'
+        size_ref = 'I'
     elif bits_per_instruction == 64:
-        return 'q'
+        size_ref = 'Q'
     else:
         print 'Error: Number of bits (' + bits_per_instruction + \
               ') not supported'
         return None
+    return endianess+size_ref
 
 
 def check_arguments():
@@ -123,7 +126,7 @@ def check_arguments():
     return True
 
 
-def translate_binary(struct_type, filename):
+def translate_binary(filename, struct_type=">I", print_progress=False):
     """
     :param struct_type: struct type obtained from find_struct_type().
     :param filename: filename/filepath passed as argument.
@@ -131,15 +134,23 @@ def translate_binary(struct_type, filename):
     """
     new_filename = filename + appended_extension
     bytes_per_instruction = bits_per_instruction/8
+    i = 0
 
     new_binary = open(new_filename, 'wb')
     original_binary = open(filename, "rb")
     try:
-        instruction = original_binary.read(bytes_per_instruction)
-        while instruction != "":
+        original_read = original_binary.read(bytes_per_instruction)
+        while original_read != "":
+            instruction, = struct.unpack(struct_type, original_read)
             new_instruction = convert_instruction(instruction)
+            if print_progress:
+                sys.stdout.write(str(i) + ": ")
+                print_instruction(instruction)
+                sys.stdout.write(" -> ")
+                print_instruction(new_instruction)
+                sys.stdout.write("\n")
             new_binary.write(struct.pack(str(struct_type), new_instruction))
-            instruction = original_binary.read(bytes_per_instruction)
+            original_read = original_binary.read(bytes_per_instruction)
     finally:
         original_binary.close()
         new_binary.close()
@@ -173,7 +184,7 @@ def print_binary_line(original_instruction, match, new_instruction):
     sys.stdout.write("\n")
 
 
-def print_binary(filename, match=True, new_filename=None, struct_type="i"):
+def print_binary(filename, match=True, new_filename=None, struct_type=">I"):
     """
     :param filename: Name of first file, must exist.
     :param match: if should try to match with convert table.
@@ -187,30 +198,31 @@ def print_binary(filename, match=True, new_filename=None, struct_type="i"):
         new_filename = filename + appended_extension
         new_binary = open(new_filename, "rb")
     try:
-        original_instruction, = struct.unpack(struct_type,
-                                              original_binary.read(bytes_per_instruction))
+        original_read = original_binary.read(bytes_per_instruction)
         if new_filename:
-            new_instruction, = struct.unpack(struct_type,
-                                             new_binary.read(bytes_per_instruction))
+            new_read = new_binary.read(bytes_per_instruction)
         else:
             new_instruction = None
-
-        while original_instruction != "":
-            if new_filename and new_instruction == "":
+        while original_read != "":
+            if new_filename and new_read == "":
                 print "New binary ended earlier, problem?"
                 return False
-            print_binary_line(original_instruction, match, new_instruction)
-            original_instruction, = struct.unpack(struct_type,
-                                                 original_binary.read(bytes_per_instruction))
+
+            original_instruction, = struct.unpack(struct_type, original_read)
             if new_filename:
-                new_instruction, = struct.unpack(struct_type,
-                                                 new_binary.read(bytes_per_instruction))
+                new_instruction, = struct.unpack(struct_type, new_read)
+
+            print_binary_line(original_instruction, match, new_instruction)
+            original_read = original_binary.read(bytes_per_instruction)
+            if new_filename:
+                new_read = new_binary.read(bytes_per_instruction)
+
     finally:
         original_binary.close()
         if new_filename:
             new_binary.close()
 
-    if new_filename and new_instruction != "":
+    if new_filename and new_read != "":
         print "Old binary ended earlier, problem?"
         return False
     else:
@@ -230,7 +242,7 @@ def main():
         sys.exit()
 
     if sys.argv[1] == "c":
-        translate_binary(struct_type, sys.argv[2])
+        translate_binary(sys.argv[2], struct_type)
     elif sys.argv[1] == "p":
         print_binary(path, True, None, struct_type)
     elif sys.argv[1] == "v":
@@ -238,7 +250,9 @@ def main():
 
 if __name__ == "__main__":
     #main()
-    print_binary("bubblesort.x", True, None)
+    #print_binary("bubblesort.x", True, None)
+    translate_binary("bubblesort.x")
+    print_binary("bubblesort.x", True, "bubblesort.x.bt")
 
     #test = 0b00100000000000000001010101010101
     #new = convert_instruction(test)

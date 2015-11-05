@@ -1,5 +1,6 @@
 # Must be divisible by 8 (1 byte) and <= 64
 bits_per_instruction = 32
+endianess = ">"             # < : little-endian ; > : big-indian
 expected_extension = ".x"
 appended_extension = ".bt"
 
