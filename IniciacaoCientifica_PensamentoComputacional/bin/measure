@@ -1,0 +1,51 @@
+---------- bellmanford.x ----------
+Init instructions: 389470
+Mips instructions executed: 6478
+Normal instructions: 745579
+Normal Efficiency: 54.9720592776
+Indirect instructions: 637969
+Indirect Efficiency: 38.3604507564
+Indirect SpeedUp 1.43303997199
+[('sll|addu', 891), ('sll|sll', 735), ('addu|lw', 600), ('addu|sll', 405), ('lw|sll', 250), ('bgtz|sll', 250), ('lw|bgtz', 250), ('addu|sw', 227), ('sw|addu', 225), ('sw|sw', 124), ('addiu|addu', 115), ('bne|addiu', 110), ('blez|sll', 102), ('lw|blez', 101), ('sll|bne', 90), ('addiu|addiu', 35), ('sll|addiu', 28), ('sw|addiu', 28), ('addiu|sw', 27), ('addiu|bne', 19), ('lw|lw', 16), ('lui|lui', 11), ('addiu|sll', 11), ('sll|slt', 10), ('bne|sll', 10), ('slt|bne', 10), ('blez|addiu', 9), ('sll|blez', 9), ('sll|lw', 2), ('lui|sw', 2), ('addiu|syscall', 2), ('addiu|lui', 2), ('sw|jal', 1), ('jumpr2|addiu', 1), ('sw|lw', 1), ('lw|jumpr2', 1), ('addiu|jumpr2', 1), ('ori|addu', 1), ('lw|addiu', 1), ('addiu|blez', 1), ('lui|ori', 1), ('jal|sw', 1), ('sw|slti', 1), ('jumpr2|sll', 1), ('syscall|jal', 1), ('jal|sll', 1), ('slti|bne', 1), ('sw|lui', 1)]
+---------- ---------- ----------
+---------- crc.x ----------
+Init instructions: 491230
+Mips instructions executed: 259154
+Normal instructions: 15262969
+Normal Efficiency: 56.9998495103
+Indirect instructions: 10609404
+Indirect Efficiency: 39.0430940676
+Indirect SpeedUp 1.45992142456
+[('sll|xor', 24000), ('subu|and', 18048), ('slti|movn', 16000), ('xor|slti', 16000), ('xor|srl', 13024), ('movn|sll', 10000), ('srl|xor', 9280), ('and|srl', 9024), ('and|xor', 8768), ('srl|subu', 8768), ('xor|xor', 7900), ('andi|sll', 6100), ('xor|andi', 6000), ('sll|sll', 6000), ('srl|sll', 6000), ('xor|subu', 4512), ('bne|addu', 4256), ('sll|andi', 4099), ('xor|sll', 4000), ('andi|or', 4000), ('or|sll', 2400), ('andi|subu', 2256), ('xor|addiu', 2256), ('or|srl', 2200), ('sll|addu', 2100), ('sll|lbu', 2099), ('movn|addiu', 2000), ('movn|bne', 2000), ('addiu|sll', 2000), ('lbu|subu', 2000), ('xor|bne', 2000), ('addiu|lbu', 2000), ('bne|xor', 2000), ('andi|xor', 2000), ('srl|bne', 2000), ('lbu|addiu', 2000), ('lw|lbu', 2000), ('movn|andi', 2000), ('addu|lw', 2000), ('addiu|srl', 2000), ('lbu|xor', 2000), ('addu|sll', 1900), ('addu|andi', 1900), ('addiu|addiu', 860), ('lui|ori', 601), ('ori|and', 600), ('and|or', 400), ('sw|sw', 306), ('addiu|lui', 301), ('beq|addiu', 300), ('and|sll', 300), ('jal|addu', 300), ('lbu|beq', 300), ('addiu|subu', 257), ('and|andi', 256), ('sw|bne', 256), ('xor|sw', 256), ('addu|subu', 255), ('addu|lbu', 201), ('sll|or', 201), ('sll|lui', 200), ('bne|sll', 200), ('srl|lui', 200), ('addu|jal', 200), ('lui|lui', 200), ('jumpr2|sll', 200), ('nor|jumpr2', 200), ('lui|addiu', 200), ('addu|nor', 200), ('sll|addiu', 102), ('sb|sh', 100), ('xor|nor', 100), ('sll|sb', 100), ('nor|srl', 100), ('sw|sb', 100), ('or|lui', 100), ('or|addu', 100), ('addiu|bne', 100), ('jumpr2|or', 100), ('sll|ori', 100), ('andi|jumpr2', 100), ('addiu|lw', 100), ('sh|or', 100), ('addu|lui', 100), ('srl|ori', 100), ('srl|or', 100), ('lui|srl', 100), ('sll|and', 100), ('addiu|xor', 100), ('srl|andi', 100), ('sll|srl', 100), ('ori|andi', 100), ('sb|jal', 100), ('or|sw', 100), ('ori|sll', 100), ('lw|bne', 100), ('lw|lw', 6), ('addiu|syscall', 2), ('or|or', 1), ('jal|sll', 1), ('jumpr2|addiu', 1), ('lw|jumpr2', 1), ('addiu|andi', 1), ('sw|addiu', 1), ('syscall|jal', 1), ('addiu|sw', 1), ('or|sltu', 1), ('ori|addiu', 1), ('sltu|lw', 1)]
+---------- ---------- ----------
+---------- matrix.x ----------
+Init instructions: 602590
+Mips instructions executed: 818
+Normal instructions: 649755
+Normal Efficiency: 57.6589242054
+Indirect instructions: 637395
+Indirect Efficiency: 42.5488997555
+Indirect SpeedUp 1.3551213906
+ -- Warning -- Index Error in :3564 3427 3427 3427
+[('lui|sw', 43), ('sw|lui', 39), ('sw|sw', 23), ('lw|lw', 18), ('addiu|slti', 15), ('lui|addiu', 15), ('sw|addiu', 14), ('addiu|addiu', 13), ('addu|sw', 12), ('addiu|syscall', 10), ('sw|addu', 9), ('sll|lui', 9), ('addiu|lui', 9), ('addu|addiu', 8), ('jumpr2|sll', 8), ('syscall|jumpr2', 8), ('slti|beq', 8), ('addiu|addu', 7), ('lw|addiu', 7), ('bne|sll', 7), ('slti|bne', 7), ('addu|lw', 6), ('addiu|lw', 6), ('jal|addiu', 5), ('sll|sw', 4), ('bne|addu', 4), ('beq|sll', 4), ('beq|addu', 3), ('addiu|bne', 3), ('lui|lui', 3), ('lw|jal', 3), ('jal|addu', 3), ('sll|lw', 3), ('addu|lui', 3), ('lw|sw', 3), ('lw|bne', 3), ('lw|addu', 2), ('sw|lw', 2), ('lui|lw', 2), ('sll|jal', 2), ('sll|addiu', 2), ('jumpr2|addiu', 1), ('bne|lw', 1), ('addiu|jal', 1), ('slti|lui', 1), ('lw|lui', 1), ('addiu|j', 1), ('bne|sw', 1), ('lw|jumpr2', 1), ('lui|slti', 1), ('lui|jal', 1), ('j|addu', 1), ('syscall|jal', 1), ('beq|sw', 1), ('addiu|sw', 1), ('jal|sll', 1), ('bne|jal', 1), ('sw|bne', 1)]
+---------- ---------- ----------
+---------- sort.x ----------
+Init instructions: 351070
+Mips instructions executed: 94662
+Normal instructions: 5771674
+Normal Efficiency: 57.2627242188
+Indirect instructions: 4315509
+Indirect Efficiency: 41.8799412647
+Indirect SpeedUp 1.36730669838
+[('addu|slt', 6503), ('lw|sltu', 6023), ('slt|beq', 5935), ('beq|sll', 5908), ('lw|lw', 5461), ('beq|addu', 5282), ('addiu|lw', 5076), ('sltu|addiu', 5075), ('addiu|beq', 4878), ('sll|addiu', 4830), ('sll|addu', 4764), ('sw|sw', 2664), ('addiu|sll', 2207), ('j|sll', 2204), ('addu|j', 2154), ('sw|addiu', 2078), ('beq|addiu', 2048), ('sll|sw', 1980), ('addu|lw', 1671), ('sltu|beq', 1454), ('sll|sll', 1201), ('slt|lw', 1070), ('lw|beq', 1070), ('addiu|sltu', 978), ('addiu|addu', 974), ('addu|sll', 834), ('addu|sw', 650), ('j|addu', 638), ('sw|sll', 600), ('sll|slt', 558), ('sltu|movn', 472), ('ori|sll', 472), ('movn|j', 472), ('lw|ori', 472), ('addiu|addiu', 398), ('bne|addiu', 377), ('bne|sll', 341), ('addiu|bne', 296), ('addu|addiu', 285), ('addiu|slt', 284), ('bne|addu', 248), ('addu|bne', 248), ('sw|addu', 197), ('addu|addu', 196), ('slt|bne', 192), ('sll|lw', 188), ('sll|j', 166), ('slti|bne', 149), ('sw|slti', 148), ('slt|addu', 148), ('mhfi|addiu', 100), ('subu|sw', 100), ('addiu|srl', 100), ('sra|addu', 100), ('mult|mhfi', 100), ('addu|subu', 100), ('srl|sra', 100), ('lw|addiu', 99), ('addu|mult', 99), ('beq|sw', 99), ('jumpr2|addiu', 98), ('addiu|sw', 98), ('lw|jumpr2', 98), ('addiu|jal', 97), ('lw|addu', 97), ('jal|addu', 96), ('lw|sw', 96), ('addiu|j', 82), ('j|addiu', 82), ('sll|bne', 81), ('addiu|subu', 81), ('subu|addiu', 81), ('lw|j', 50), ('addiu|syscall', 2), ('addiu|slti', 1), ('addiu|mult', 1), ('lui|ori', 1), ('ori|addiu', 1), ('jal|addiu', 1), ('syscall|jal', 1), ('jal|sll', 1), ('addiu|lui', 1)]
+---------- ---------- ----------
+---------- sudoku.x ----------
+Init instructions: 360670
+Mips instructions executed: 954611
+Normal instructions: 55199485
+Normal Efficiency: 57.4462425009
+Indirect instructions: 39551245
+Indirect Efficiency: 41.0539738176
+Indirect SpeedUp 1.39928579767
+[('beq|sll', 95222), ('lw|beq', 92418), ('sll|addu', 88363), ('addu|sll', 85266), ('addu|addu', 66242), ('bne|addiu', 34254), ('slti|bne', 34254), ('addiu|addiu', 32944), ('addiu|lw', 32932), ('sll|lw', 32437), ('srl|addu', 29108), ('sll|sll', 29108), ('mult|mhfi', 29108), ('addu|lw', 28078), ('sll|mult', 27050), ('mhfi|srl', 27050), ('addu|subu', 27050), ('subu|addu', 27050), ('addiu|slti', 25606), ('sll|addiu', 25234), ('addu|addiu', 12115), ('sll|slti', 9428), ('sw|sw', 9339), ('lw|lw', 9261), ('addiu|addu', 9055), ('addiu|sw', 4120), ('sw|addiu', 3091), ('slti|beq', 2804), ('addu|slti', 2069), ('slti|sw', 2058), ('sw|slti', 2013), ('addiu|sll', 1040), ('jumpr2|addiu', 1030), ('lw|jumpr2', 1030), ('mhfi|sll', 1029), ('addu|srl', 1029), ('sw|lw', 1029), ('sw|addu', 1029), ('addiu|srl', 1029), ('mhfi|mult', 1029), ('lui|ori', 1029), ('ori|mult', 1029), ('sll|lui', 1029), ('lw|jal', 1028), ('bne|sll', 1028), ('addiu|bne', 1028), ('sll|j', 1007), ('jal|addu', 1002), ('addiu|j', 984), ('j|sll', 984), ('j|sw', 962), ('j|addiu', 45), ('jal|addiu', 27), ('sll|sw', 22), ('addiu|syscall', 2), ('addiu|jal', 1), ('syscall|jal', 1), ('jal|sll', 1)]
+---------- ---------- ----------
